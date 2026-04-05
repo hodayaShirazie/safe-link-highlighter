@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <title>Link Color Coder</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      width: 240px;
+      padding: 14px 16px;
+      margin: 0;
+      background: #1e1e2e;
+      color: #cdd6f4;
+    }
+
+    h2 {
+      font-size: 15px;
+      margin: 0 0 12px;
+      color: #cba6f7;
+      text-align: center;
+    }
+
+    .legend {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 12px;
+    }
+
+    .legend li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 5px 0;
+      font-size: 13px;
+      border-bottom: 1px solid #313244;
+    }
+
+    .legend li:last-child { border-bottom: none; }
+
+    .dot {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .dot.green  { background: #1a9c2a; }
+    .dot.red    { background: #d93025; }
+    .dot.yellow { background: #e8a800; }
+
+    .note {
+      font-size: 11px;
+      color: #a6adc8;
+      text-align: center;
+      margin-top: 6px;
+    }
+  </style>
+</head>
+<body>
+  <h2>🔗 Link Color Coder</h2>
+  <ul class="legend">
+    <li><span class="dot green"></span>  HTTPS — קישור מאובטח</li>
+    <li><span class="dot red"></span>    HTTP — קישור לא מוצפן</li>
+    <li><span class="dot yellow"></span> IP — דומיין כתובת IP (חשוד)</li>
+  </ul>
+  <p class="note">התוסף פועל אוטומטית על כל הדפים.</p>
+</body>
+</html>
