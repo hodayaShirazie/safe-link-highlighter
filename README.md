@@ -6,9 +6,9 @@ A Chrome extension that colors every link on a page based on its security type �
 
 | Color  | Meaning                              |
 |--------|--------------------------------------|
-| 🟢 Green  | `https://` — encrypted, secure link  |
-| 🔴 Red    | `http://` — unencrypted link         |
-| 🟡 Yellow | IP-based URL (e.g. `http://1.2.3.4`) — potentially suspicious |
+| 🟢 Green  | `https://` - encrypted, secure link  |
+| 🔴 Red    | `http://` - unencrypted link         |
+| 🟡 Yellow | IP-based URL (e.g. `http://1.2.3.4`) - potentially suspicious |
 
 ## Features
 
@@ -30,34 +30,10 @@ A Chrome extension that colors every link on a page based on its security type �
 ```
 link-color-coder/
 ├── manifest.json   # Chrome Manifest v3 config
-├── content.js      # Core logic — classifies and colors links
+├── content.js      # Core logic - classifies and colors links
 ├── popup.html      # Extension popup with color legend
 └── icons/
     ├── icon16.png
     ├── icon48.png
     └── icon128.png
 ```
-
-## How It Works
-
-`content.js` runs on every page at `document_idle`. It:
-
-1. Queries all `<a href>` elements
-2. Classifies each URL:
-   - IP regex match → yellow
-   - starts with `https://` → green
-   - starts with `http://` → red
-   - anything else (relative, `mailto:`, etc.) → untouched
-3. Applies a CSS class (`lcc-secure`, `lcc-insecure`, `lcc-ip`) that sets the link color via `!important`
-4. Observes DOM mutations to catch links added after page load
-
-## Future Ideas
-
-- Import a blocklist / phishing feed (e.g. PhishTank API)
-- Highlight shortened URLs (bit.ly, t.co, etc.)
-- Show a per-page summary in the popup (count by type)
-- Allow users to customize colors via options page
-
-## License
-
-MIT
